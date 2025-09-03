@@ -1,46 +1,155 @@
-# Getting Started with Create React App a
+# 🎨 Locker System UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend do projeto **Locker System**, desenvolvido em **React** com **Styled Components**, para gerenciamento de armários de encomendas em portarias de prédios.  
+Este repositório é responsável pela interface web que consome a API do backend em Java Spring Boot.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📚 Sumário
 
-### `npm start`
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)  
+- [Requisitos](#-requisitos)  
+- [Instalação](#-instalação)  
+- [Configuração](#-configuração)  
+- [Estrutura do Projeto](#-estrutura-do-projeto)  
+- [Funcionalidades](#-funcionalidades)  
+- [Integração com Backend](#-integração-com-backend)  
+- [Roadmap](#-roadmap)  
+- [Licença](#-licença)  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Tecnologias Utilizadas
 
-### `npm test`
+- **React 18+**
+- **TypeScript**
+- **Styled Components**
+- **Axios** (requisições HTTP)
+- **React Router DOM**
+- **Redux Toolkit** (gerenciamento de estado)
+- **Vite** ou **Create React App** (dependendo da configuração inicial)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🖥️ Requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de começar, instale:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js 18+](https://nodejs.org/)  
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Instalação
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone o repositório:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/mariavitoriaventura/LockerSystemUI.git
+cd LockerSystemUI
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Instale as dependências:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install
+# ou
+yarn install
+```
 
-## Learn More
+3. Execute a aplicação:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+# ou
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O frontend estará disponível em:  
+👉 `http://localhost:3000`
+
+---
+
+## ⚙️ Configuração
+
+No arquivo `.env`, configure a URL da API do backend:
+
+```
+VITE_API_URL=http://localhost:8080
+```
+
+Isso permite que o frontend se comunique com o backend Spring Boot.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+LockerSystemUI/
+ ├── src/
+ │   ├── components/     # Componentes reutilizáveis (Navbar, Sidebar, Modal, etc.)
+ │   ├── pages/          # Páginas principais (Login, Dashboard, Residents, Deliveries)
+ │   ├── store/          # Redux Toolkit (slices e configuração)
+ │   ├── api/            # Configuração do Axios e serviços de requisição
+ │   ├── models/         # Tipagens e interfaces TypeScript
+ │   ├── styles/         # Estilos globais com Styled Components
+ │   └── App.tsx         # Roteamento principal
+ └── public/
+      └── index.html
+```
+
+---
+
+## 📋 Funcionalidades
+
+- **Login e autenticação JWT**  
+- **Dashboard dos lockers**  
+  - Exibe lockers livres e ocupados  
+  - Cadastro de entrega em locker livre  
+  - Exibição de detalhes da entrega em locker ocupado  
+- **Gerenciamento de moradores**  
+  - Listagem e busca por nome/apartamento  
+  - Cadastro e exclusão de moradores  
+- **Gerenciamento de entregas**  
+  - Listagem com filtros  
+  - Cadastro de novas entregas  
+  - Edição de observações e apartamento  
+- **Perfil do usuário e Logout**  
+
+---
+
+## 🔗 Integração com Backend
+
+O frontend consome a API exposta pelo backend do [Locker System](https://github.com/mariavitoriaventura/LockerSystem).  
+A autenticação é feita via **JWT**, armazenado no `localStorage`, e enviado no header `Authorization` em todas as requisições.
+
+Exemplo:
+
+```ts
+api.get("/deliveries", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
+```
+
+---
+
+## 🔮 Roadmap
+
+- [x] Login e autenticação com JWT  
+- [x] Dashboard de lockers  
+- [x] CRUD de moradores  
+- [x] CRUD de entregas  
+- [ ] Validação em tempo real no cadastro de entregas  
+- [ ] Upload de foto na coleta da entrega  
+- [ ] Melhorias de UX/UI  
+
+---
+
+## 📜 Licença
+
+Este projeto foi desenvolvido com finalidade **educacional** e de **estudo em React + Styled Components**.  
+Sinta-se à vontade para clonar e adaptar para seus próprios projetos.
+
+---

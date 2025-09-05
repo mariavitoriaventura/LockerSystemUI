@@ -1,5 +1,7 @@
 # 🎨 Locker System UI
 
+![Descrição opcional](/public/gif.gif)
+
 Frontend do projeto **Locker System**, desenvolvido em **React** com **Styled Components**, para gerenciamento de armários de encomendas em portarias de prédios.  
 Este repositório é responsável pela interface web que consome a API do backend em Java Spring Boot.
 
